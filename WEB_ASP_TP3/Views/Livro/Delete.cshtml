@@ -1,0 +1,18 @@
+﻿@model IEnumerable<WEB_ASP_TP3.Models.LivroViewModel>
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Voce tem certeza?</h3>
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+
+            <input type="button" class="btn btn-info" value="Cancelar" onclick="location.href='@Url.Action("index", "Livro")'" />
+        </div>
+</div>

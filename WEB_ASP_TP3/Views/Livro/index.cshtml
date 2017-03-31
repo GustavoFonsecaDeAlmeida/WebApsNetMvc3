@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WEB_ASP_TP3.Models.LivroViewModel>
+
+
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h2>Lista de livros</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Editora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ano)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Editora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano)
+            </td>
+            <td>
+                <input type="button" class="btn btn-warning" value="Editar" onclick="location.href='@Url.Action("Edit", "Livro", new { id = item.Id })'" />
+                <input type="button" class="btn btn-info" value="Detalhe" onclick="location.href='@Url.Action("Detalhe", "Livro", new { id = item.Id })'" />
+                <input type="button" class="btn btn-danger" value="Deletar" onclick="location.href='@Url.Action("PreviewDelete", "Livro", new { id = item.Id })'" />
+            </td>
+        </tr>
+    }
+
+</table>
